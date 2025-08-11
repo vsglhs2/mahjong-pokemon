@@ -1,0 +1,14 @@
+{$DOMAIN} {
+	log {
+		level INFO
+		output file {$LOG_FILE} {
+			roll_size 10MB
+			roll_keep 10
+		}
+	}
+
+	tls {$EMAIL}
+	encode zstd gzip
+
+	file_server
+}
