@@ -32,10 +32,8 @@ const GAME_URL = '/patched.swf';
 const RUFFLE_PATH = '/node_modules/@ruffle-rs/ruffle';
 const PUBLIC_PATH = import.meta.env.DEV ? RUFFLE_PATH : undefined;
 
-const modules = import.meta.glob('/node_modules/@ruffle-rs/ruffle/*', {
-    query: 'url',
-});
-console.log(modules);
+// Needed to get modules to be copied during build
+import.meta.glob('/node_modules/@ruffle-rs/ruffle/*', { query: 'url' });
 
 window.addEventListener('load', () => {
     const ruffle = RufflePlayer.newest();
