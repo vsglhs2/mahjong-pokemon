@@ -41,7 +41,6 @@ window.addEventListener('load', () => {
     const player = ruffle.createPlayer();
     player.style.width = '100%';
     player.style.height = '100%';
-    player.volume = 0;
 
     const container = document.getElementById('container');
     if (!container) {
@@ -51,10 +50,15 @@ window.addEventListener('load', () => {
     container.appendChild(player);
 
     RufflePlayer.config.publicPath = PUBLIC_PATH;
-    player.ruffle().load({
-        url: GAME_URL,
-        allowScriptAccess: false,
-        autoplay: 'on',
-        unmuteOverlay: 'hidden',
-    });
+    player
+        .ruffle()
+        .load({
+            url: GAME_URL,
+            allowScriptAccess: false,
+            autoplay: 'on',
+            unmuteOverlay: 'hidden',
+        })
+        .then(() => {
+            player.volume = 0;
+        });
 });
