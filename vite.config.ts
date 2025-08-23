@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
     build: {
         assetsDir: '',
         rollupOptions: {
@@ -10,5 +10,6 @@ export default defineConfig({
             },
         },
     },
-});
+    base: mode === 'github-actions' ? '/mahjong-pokemon' : undefined,
+}));
 
