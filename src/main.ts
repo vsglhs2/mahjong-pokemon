@@ -28,9 +28,9 @@ declare global {
     }
 }
 
-const GAME_URL = '/patched.swf';
 const RUFFLE_PATH = '/node_modules/@ruffle-rs/ruffle';
-const PUBLIC_PATH = import.meta.env.DEV ? RUFFLE_PATH : undefined;
+const PUBLIC_PATH = import.meta.env.DEV ? RUFFLE_PATH : import.meta.env.BASE_URL;
+const GAME_URL = new URL('/patched.swf', import.meta.url).toString();
 
 // Needed to get modules to be copied during build
 import.meta.glob('/node_modules/@ruffle-rs/ruffle/*', { query: 'url' });

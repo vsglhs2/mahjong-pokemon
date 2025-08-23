@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "github-actions:build": "vite build --mode github-actions"
+    "github-actions:build": "vite build --mode github-actions",
+    "github-actions:preview": "vite preview --mode github-actions"
   },
   "devDependencies": {
     "typescript": "~5.8.3",
